@@ -10,7 +10,7 @@ if len(sys.argv) < 3:
 blast_DB_loc = '/usr/local/ncbi/blast/bin/makeblastdb'
 i = sys.argv[2]
 
-arg1 = '-out Oophaga.'+i
+arg1 = '-out OophagaDB/Oophaga.'+i
 arg2 = '-dbtype nucl'
 arg3 = '-in '+sys.argv[1]
 
