@@ -9,16 +9,16 @@
 # gunzip the file Oophaga.clean.newest.fa.gz and put it in the folder pumilio_data
  
 # Make blast db
-python make_blast_db.py pumilio_data/Oophaga.clean.newest.fa 0
+python2 make_blast_db.py pumilio_data/Oophaga_pumilio_P_RNA-scaffolded_genome.fasta 0
 
 # running blast to determine the scaffold that contains LWS
-python run_blast.py OophagaDB/Oophaga.0 0 6
+python2 run_blast.py OophagaDB/Oophaga.0 0 6
 
 # find LWS scaffold at 1e-20 threshold
 myvar=$(cat output/LWS_results.0.6.txt | awk '{if($11 < 1e-20) print $2}'| sort | uniq)
 
 # find LWS and reverse complement
-python get_LWS_scaffolds.py pumilio_data/Oophaga.clean.newest.fa $myvar > output/LWS_scaffold.fa
+python2 get_LWS_scaffolds.py pumilio_data/Oophaga_pumilio_P_RNA-scaffolded_genome.fasta $myvar > output/LWS_scaffold.fa
 
 # make input file and align LWS scaffold to nanorana and known SWS2 sequences/LWS sequences
 cat infiles/LWS_example_seq.fa > infiles/mafft.input.fa
